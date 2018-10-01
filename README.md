@@ -2,7 +2,7 @@
 
 ## Projects
 
-### P1 Genetic Algorithm with concurrency (Didn't do it, YET)
+### P1 Genetic Algorithm with concurrency (Didn't do it, YET) :scream:
 ```
 Wasn't inspired
 ```
@@ -12,9 +12,9 @@ A simulation of an agenda with threads.
 ```
 
 ## Class Exercises
-### E1 Matrix Multiplicacion (Haven't done it, AGAIN :c)
+### E1 Matrix Multiplicacion (Haven't done it, AGAIN) :anguished:
 ```
-Parallel multiplications within the matrix multiplication :scream:
+Parallel multiplications within the matrix multiplication  
 ```
 ### E2 Simple socket chat with multiple clients
 ```
