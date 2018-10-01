@@ -1,6 +1,6 @@
 # Network_Apps
 
-##Projects
+## Projects
 
 ### P1 Genetic Algorithm with concurrency (Didn't do it, YET)
 ```
