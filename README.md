@@ -12,8 +12,11 @@ A simulation of an agenda with threads.
 ```
 
 ## Class Exercises
-
-### E1 Simple socket chat with multiple clients
+### E1 Matrix Multiplicacion (Haven't done it, AGAIN :c)
+```
+Parallel multiplications within the matrix multiplication :scream:
+```
+### E2 Simple socket chat with multiple clients
 ```
 Uses threads to make a non-blocking server and accept multiple clients
 ```
