@@ -21,7 +21,7 @@ class ChatServer():
         print('Client connected with ' + addr[0] + ':' + str(addr[1]))
         while True:
             data = conn.recv(1024)
-            print('Cliente: ',data.decode())
+            print('Cliente {}: '.format(str(addr[1])),data.decode())
             reply = input('... ')
             conn.sendall(reply.encode()) 
              
