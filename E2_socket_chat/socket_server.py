@@ -19,13 +19,16 @@ class ChatServer():
 
     def response(self, conn, addr):
         print('Client connected with ' + addr[0] + ':' + str(addr[1]))
-        while True:
+        reply = ''
+        while reply != '¬':
             data = conn.recv(1024)
             print('Cliente {}: '.format(str(addr[1])),data.decode())
             reply = input('... ')
             conn.sendall(reply.encode()) 
              
+        print('Servidor cerrado')
         conn.close() # Close
+        quit()
 
     def start(self):
         print('[Esperando conexión ...]')
