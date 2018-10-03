@@ -21,45 +21,27 @@ class ChatServer():
         print('Client connected with ' + addr[0] + ':' + str(addr[1]))
         while True:
             data = conn.recv(1024)
-            print(data.decode())
-            conn.sendall(reply) 
+            print('Cliente: ',data.decode())
+            reply = input('... ')
+            conn.sendall(reply.encode()) 
              
         conn.close() # Close
 
-    def accept_connection(self):
+    def start(self):
         print('[Esperando conexión ...]')
 
-        while True
+        while True:
             conn,addr = self.s.accept()
             threading.Thread(target=self.response, args=(conn, addr)).start()
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = socket.gethostname()
-port = 12221
 
-exit_keyword = 'teamo'
 
-s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-s.bind((host, port))
+if __name__ == '__main__':
+    PORT = 12220
+    server = ChatServer(PORT)
+    # Run the chat server listening on PORT
+    server.start()
 
-s.listen(5)
-c = None
+    # Send a message to the chat server
 
-while True:
-    if c is None:
-        print('[Esperando conexion...]')
-        c, addr = s.accept()
-        print('Conectado desde', addr)
-    else:
-        print('[Esperando respuesta...]')
-        print(c.recv(1024).decode())
-        msg = input('... ')
-        q = 'Servidor: ' + msg
-        if msg == exit_keyword:
-            s.close()
-            c.close()
-            print('Ha terminado la conexion')
-            quit()
-        else:
-            c.send(q.encode())
-    
+   
