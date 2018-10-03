@@ -6,7 +6,6 @@ class ChatServer():
         self.port = port
         self.host = host
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.users = list()
 
         try:
             self.s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -27,7 +26,7 @@ class ChatServer():
             conn.sendall(reply.encode()) 
              
         print('Servidor cerrado')
-        conn.close() # Close
+        conn.close() 
         quit()
 
     def start(self):
@@ -42,9 +41,8 @@ class ChatServer():
 if __name__ == '__main__':
     PORT = 12220
     server = ChatServer(PORT)
-    # Run the chat server listening on PORT
+
     server.start()
 
-    # Send a message to the chat server
 
    
