@@ -10,6 +10,10 @@ Wasn't inspired
 ```
 A simulation of an agenda with threads.
 ```
+### P3 P2P Network
+```
+A basic simluation of a P2P Network
+```
 
 ## Class Exercises
 ### E1 Matrix Multiplicacion (Haven't done it, AGAIN) :anguished:
