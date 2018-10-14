@@ -1,6 +1,10 @@
 import socket, threading
+import json
+from os import listdir
+from os.path import isfile, join
+from libs.File_Manager import *
 
-class ChatServer():
+class P2P_Node():
 
     def __init__(self, port, host = 'localhost', keyword = '¬'):
         self.port = port
@@ -21,6 +25,14 @@ class ChatServer():
         reply = ''
         while reply != '¬':
             data = conn.recv(1024)
+            if data == "FileList":
+                pass
+            else if data[0 : 14 ] == "filePetition: ":
+                fileName = data[ 14 :]
+                bytesOfFile = self.getBytesOfFile(fileName)
+
+            else:
+
             print('Cliente {}: '.format(str(addr[1])),data.decode())
             reply = input('... ')
             conn.sendall(reply.encode()) 
@@ -28,6 +40,29 @@ class ChatServer():
         print('Servidor cerrado')
         conn.close() 
         quit()
+
+    #lee un archivo en bytes
+    def getBytesOfFile(self, fileName):
+        
+        fm = File_Manager(fileName, None)
+        content = fm.get_text_bin()
+
+        return content
+
+    def createFileFromBytes(self, bytes, fileName):
+
+        fm = File_Manager(None,fileName)
+        fm.create_file_bin(bytes)
+
+        return
+        
+    #Busca y devuelve un json con todos los archivos disponibles
+    def getFileList(self):
+
+        onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+        j = json.dumps(onlyfiles)
+
+        return j
 
     def start(self):
         print('[Esperando conexión ...]')
@@ -43,4 +78,4 @@ if __name__ == '__main__':
     server = ChatServer(PORT)
     threading.Thread(target=server.start(), args=()).start()
     
-    print(10+15)
+    print("Codigo de cliente")  
