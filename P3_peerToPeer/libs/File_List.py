@@ -23,6 +23,6 @@ class File_List():
 
 if __name__ == '__main__':
 
-	fm = File_Manager('ips.txt',None)
+	fm = File_Manager('../ips.txt',None)
 
 	print(fm.file_to_list())
