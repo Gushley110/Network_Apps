@@ -16,7 +16,6 @@ class File_Manager:
 
 	def copy_text(self,n = 1):
 		text = self.getText()
-
 		with open(self.trgtname, mode='w', encoding='utf-8') as new_file:
 				new_file.write(n * ("%s\n" % (text)))
 
@@ -31,6 +30,12 @@ class File_Manager:
 	def create_file_bin(self,text): #Creates or modifies a file in binary
 		with open(self.trgtname, mode='wb') as new_file:
 				new_file.write(text)
+
+	def file_to_list(self):
+		txt = self.get_text()
+		l = txt.split('\n')
+		return l
+
 
 	
 
