@@ -1,7 +1,4 @@
 import socket, threading
-import json
-from os import listdir
-from os.path import isfile, join
 from libs.File_Manager import *
 
 class P2P_Node():
@@ -29,7 +26,11 @@ class P2P_Node():
             data = conn.recv(1024)
             if data == "FileList":
                 pass
+<<<<<<< HEAD
             elif data[0 : 14 ] == "filePetition: ":
+=======
+            else if data[0 : 14] == "filePetition: ":
+>>>>>>> 6e2e1043b8b98c0685b34a28747b090f47bf8029
                 fileName = data[ 14 :]
                 bytesOfFile = self.getBytesOfFile(fileName)
 
